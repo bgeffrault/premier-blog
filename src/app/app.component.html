@@ -1,64 +1,26 @@
-<app-header></app-header>
-<div class="container">
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
+<div class="container-fluid">
+  <div class="row">
+    <app-header></app-header>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <h2>Posts</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <ul class="list-group" >
+        <app-post-list-component  *ngFor="let post of postList; let i = index"
+                       [postTitle]="post.title"
+                       [postContent]="post.content"
+                       [postLoveIts]="post.loveIts"
+                       [postCreated_at]="post.created_at"
+                       [localId]="i">
+                       </app-post-list-component>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <app-footer></app-footer>
+  </div>
 </div>
-<app-footer></app-footer>

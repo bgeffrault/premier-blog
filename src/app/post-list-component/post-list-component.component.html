@@ -1,0 +1,22 @@
+<li class="list-group-item" style="margin-bottom: 10px;"  [ngStyle]="{color: getColor()}">
+	<div class="row col-sm-12">
+		<h4>Titre : {{ postTitle }} </h4>
+	</div>
+	<div class="row col-sm-12">
+		<p style="margin:10px 0 10px">Content : {{ postContent }} </p>
+	</div>
+	<div class="row" >
+		<div class="col-sm-2">
+			<button class="btn btn-primary" style="margin:10px 0 10px" (click)="addLike()">Like</button>
+		</div>
+		<div class="col-sm-2">
+			<button class="btn btn-primary" style="margin:10px 0 10px" (click)="subLike()">Dyslike</button>
+		</div>
+		<div class="col-sm-8" style="margin:10px 0 10px; padding:10px 10px 10px">
+			Likes : {{ postLoveIts }}
+		</div>
+	</div>
+	<div class="raw" style="margin:10px 0 10px">
+		Date de création : {{ postCreated_at | date : 'dd/MM/y' }}
+	</div>
+</li>
