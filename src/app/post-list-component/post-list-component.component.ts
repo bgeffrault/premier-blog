@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { PostsManagementService } from '../services/posts-management.service';
 
 @Component({
   selector: 'app-post-list-component',
@@ -7,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class PostListComponentComponent implements OnInit {
 
-  constructor() { }
+  constructor(private postsService: PostsManagementService) { }
 
   @Input() postTitle: string; 
   @Input() postContent: string;  
@@ -16,12 +17,11 @@ export class PostListComponentComponent implements OnInit {
   @Input() localId: number;
 
   addLike() {
-    this.postLoveIts = this.postLoveIts+1;
-    console.log("was here");
+    this.postsService.likeAPost(this.postTitle);
+
   }
   subLike(){
-    this.postLoveIts = this.postLoveIts-1;
-    console.log("was here");
+    this.postsService.dyslikeAPost(this.postTitle);
   }
 
   ngOnInit() {
@@ -34,6 +34,11 @@ export class PostListComponentComponent implements OnInit {
     } else {
         return '#F4A261';
     }
+  }
+
+  deleteThisPost(){
+    console.log('Here');
+    this.postsService.deletePost(this.postTitle);
   }
 
 }

@@ -19,4 +19,9 @@
 	<div class="raw" style="margin:10px 0 10px">
 		Date de création : {{ postCreated_at | date : 'dd/MM/y' }}
 	</div>
+	<div class="row" style="margin:10px 0 10px">
+		<div class="col-sm-2">
+				<button class="btn btn-primary" style="margin:10px 0 10px" (click)="deleteThisPost()">Supprimer</button>
+		</div>
+	</div>
 </li>
