@@ -9,10 +9,11 @@ import { PostsManagementService } from './services/posts-management.service';
 import { PostFormComponent } from './post-form/post-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
+import { PostsViewComponent } from './posts-view/posts-view.component';
 
 const appRoutes: Routes = [
-  { path: '', redirectTo: 'app-root', pathMatch: 'full' },
-  { path: '**', redirectTo: 'app-root' },
+  { path: '', redirectTo: 'app-posts-view', pathMatch: 'full' },
+  { path: '**', redirectTo: 'app-posts-view' },
   { path: 'creatPost', component: PostFormComponent }
 ];
 
@@ -22,6 +23,7 @@ const appRoutes: Routes = [
     HeaderComponent,
     PostListComponentComponent,
     PostFormComponent,
+    PostsViewComponent,
   ],
   imports: [
     BrowserModule,
