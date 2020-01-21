@@ -13,12 +13,19 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 import { PostsViewComponent } from './posts-view/posts-view.component';
 import { CalandarViewComponent } from './calandar-view/calandar-view.component';
+import { CalendarModule } from 'angular-calendar';
+import { DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { SigninComponent } from './auth/signin/signin.component';
+import { HomePageViewComponent } from './homePage/home-page-view/home-page-view.component';
 
 const appRoutes: Routes = [
-  { path: '', redirectTo: 'app-posts-view', pathMatch: 'full' },
+  { path: '', component: HomePageViewComponent, pathMatch: 'full' },
   { path: '**', redirectTo: 'app-posts-view' },
   { path: 'calendar', component:  CalandarViewComponent },
-  { path: 'creatPost', component: PostFormComponent }
+  { path: 'creatPost', canActivate: [AuthGuardService], component: PostFormComponent },
+  { path: 'signIn', component: SigninComponent },
 ];
 
 @NgModule({
@@ -29,13 +36,17 @@ const appRoutes: Routes = [
     PostFormComponent,
     PostsViewComponent,
     CalandarViewComponent,
+    SigninComponent,
+    HomePageViewComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     RouterModule.forRoot(appRoutes),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbModule,
+    CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory })
   ],
   providers: [
     PostsManagementService,

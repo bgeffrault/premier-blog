@@ -16,17 +16,7 @@ export class PostsViewComponent implements OnInit {
 
  	postsSubscription: Subscription;
 
-  constructor(private postsService: PostsManagementService, private router: Router ) { 
-  	const config = {
-	        apiKey: "AIzaSyDMKskBflWI3ygLJGP91YqJYoH8BFdwyLg",
-		    authDomain: "blog-angular-training.firebaseapp.com",
-		    databaseURL: "https://blog-angular-training.firebaseio.com",
-		    projectId: "blog-angular-training",
-		    storageBucket: "blog-angular-training.appspot.com",
-		    messagingSenderId: "388554287846",
-		    appId: "1:388554287846:web:dee24bbc89826d87512927"
-	    };
-	  firebase.initializeApp(config);
+  constructor(private postsService: PostsManagementService, private router: Router ) {
       this.postsService.getPosts();
 }
 
