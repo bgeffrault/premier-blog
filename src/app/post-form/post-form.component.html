@@ -1,22 +1,59 @@
-<div class="row">
-  <div class="col-sm-8 col-sm-offset-2">
-    <h2>Nouvel article</h2>
-    <form [formGroup]="postForm" (ngSubmit)="onSavePost()">
-      <div class="form-group">
-        <label for="title">Titre</label>
-        <input type="text" id="title"
-               class="form-control" formControlName="title">
-      </div>
-      <div class="form-group">
-        <label for="content">Content</label>
-        <textarea id="content"
-                  class="form-control" formControlName="content">
-        </textarea>
-      </div>
-	<button class="btn btn-success" [disabled]="postForm.invalid"
-	      type="submit">Enregistrer
-	</button>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+      <h2>Nouvel article</h2>
+      <form [formGroup]="postForm" (ngSubmit)="onSavePost()">
+        <div class="form-group">
+          <label for="title">Titre</label>
+          <input type="text" id="title"
+                 class="form-control" formControlName="title">
+        </div>
+        <div class="form-group">
+          <label for="content">Content</label>
+          <textarea id="content"
+                    class="form-control" formControlName="content">
+          </textarea>
+        </div>
+        <div class="form-group">
+          <h4>Ajouter une photo</h4>
+          <input type="file" (change)="detectFiles($event)"
+                 class="form-control" accept="image/*">
+          <p class="text-success" *ngIf="fileUploaded">Fichier chargé !</p>
+        </div>
+        
+       <div *ngIf="fileUploaded">
+         <div class="row">
+          <h2>Choisir le rendu de l'image sur la page d'acceuille</h2>
+         </div>
 
-    </form>
+         <div class="row">
+            <image-cropper
+              [imageChangedEvent]="imageChangedEvent"
+              [maintainAspectRatio]="true"
+              [aspectRatio]="3 / 1"
+              format="png"
+              (imageCropped)="imageCropped($event)"
+              (imageLoaded)="imageLoaded()"
+              (cropperReady)="cropperReady()"
+              (loadImageFailed)="loadImageFailed()"
+          ></image-cropper>
+         </div>
+         <div class="row">
+            <h2 class="col-sm-offset-2">Résultat</h2>
+         </div>
+         <div class="row d-blok mx-auto">
+            <img class="w-75 mx-auto" [src]="croppedImage" />
+         </div>
+       </div>
+        <div class="row">
+          <div class="col-12 text-center">
+        	<button class="btn btn-success" [disabled]="postForm.invalid && fileCroppedUrl != ''"
+        	      type="submit">Enregistrer
+        	</button>
+        </div>
+        </div>
+
+      </form>
+    </div>
   </div>
 </div>

@@ -14,6 +14,9 @@ export class Post {
 	content: string;  
 	loveIts: number;
 	created_at: string;//Pb pour sauvegarder dans firebase avec le format date
+	photo: string;
+	photoCropped: string;
+	
 	constructor() {
 	}
  }

@@ -1,27 +1,42 @@
-<li class="list-group-item" style="margin-bottom: 10px;"  [ngStyle]="{'background-color': getColor()}">
-	<div class="row col-sm-12" style="text-align: center;">
-		<h4>Titre : {{ postTitle }} </h4>
+<div class="row w-100" >
+	<div class="col-12">
+		<li class="list-group-item border-left-0 border-right-0 border-top-0 " style="margin-bottom: 10px; border-bottom-color:rgba(121, 85, 72, 0.7); border-width: 50px" >
+			<div class="row">
+				<div class="col-12 text-justify text-center" >
+					<h2> {{ postTitle }} </h2>
+				</div>
+			</div>
+			
+			<div class="row">
+				<img class='mx-auto w-100' style="max-width:700px;" *ngIf="photo" [src]="photo">
+			</div>
+
+			<div class="row">
+				<p class="col-12 text-justify " style="margin:10px 0 10px">Content : {{ postContent }} </p>
+			</div>
+
+			<div class="row">
+				  <div class="button-box col-4">
+		            <a  class="btn" style="margin:10px; background-color:#f8b020" (click)="addLike()">Like</a>
+		            <a button class="btn" style="margin:10px; background-color:#f8b020" (click)="subLike()">Dyslike</a>
+		   		</div>
+				<div class="col-4" style="margin:10px">
+					<h5>Likes : {{ postLoveIts }}</h5>
+				</div>
+			</div>	
+					
+
+				
+			<div class="row">
+				<div class="col-6" style="margin:10px 0 10px">
+				Date de création : {{ postCreated_at | date : 'dd/MM/y' }}
+				</div>
+				<div class="col-2 " *ngIf="isAuth &&
+				this.postTitle != 'Petite ville' &&
+				this.postTitle != 'Popork'" >
+					<button class="btn" style="margin:10px 0 10px; background-color:#e97a0e" (click)="deleteThisPost()">Supprimer</button>
+				</div>
+			</div>
+		</li>
 	</div>
-	<div class="row col-sm-12">
-		<p style="margin:10px 0 10px">Content : {{ postContent }} </p>
-	</div>
-	<div class="row" >
-		<div class="col-sm-2">
-			<button class="btn btn-primary" style="margin:10px 0 10px" (click)="addLike()">Like</button>
-		</div>
-		<div class="col-sm-2">
-			<button class="btn btn-primary" style="margin:10px 0 10px" (click)="subLike()">Dyslike</button>
-		</div>
-		<div class="col-sm-8" style="margin:10px 0 10px; padding:10px 10px 10px">
-			Likes : {{ postLoveIts }}
-		</div>
-	</div>
-	<div class="raw" style="margin:10px 0 10px">
-		Date de création : {{ postCreated_at | date : 'dd/MM/y' }}
-	</div>
-	<div class="row" style="margin:10px 0 10px">
-		<div class="col-sm-2">
-				<button class="btn btn-primary" style="margin:10px 0 10px" (click)="deleteThisPost()">Supprimer</button>
-		</div>
-	</div>
-</li>
+</div>

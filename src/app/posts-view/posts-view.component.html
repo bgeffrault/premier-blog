@@ -1,16 +1,12 @@
-<div class="row" style="margin: 20px 20px;" >
-	<div class="col-sm-12">
-	  <h2>Posts</h2>
-	</div>
-</div>
-	<div class="row" style="margin: 20px 20px;">
-	<div class="col-sm-12">
+<div class="row" style="margin: 20px 20px;">
+	<div class="col-12">
 	  <ul class="list-group" >
 	    <app-post-list-component  *ngFor="let post of postList; let i = index"
 	                   [postTitle]="post.title"
 	                   [postContent]="post.content"
 	                   [postLoveIts]="post.loveIts"
 	                   [postCreated_at]="post.created_at"
+	                   [photo]="post.photo"
 	                   [localId]="i">
 	                   </app-post-list-component>
 	  </ul>

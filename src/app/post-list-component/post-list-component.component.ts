@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { PostsManagementService } from '../services/posts-management.service';
+import { AuthService } from '../services/auth.service';
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-post-list-component',
@@ -8,13 +10,16 @@ import { PostsManagementService } from '../services/posts-management.service';
 })
 export class PostListComponentComponent implements OnInit {
 
-  constructor(private postsService: PostsManagementService) { }
+  constructor(private authService: AuthService, private postsService: PostsManagementService) { }
 
   @Input() postTitle: string; 
   @Input() postContent: string;  
   @Input() postLoveIts: number;  
   @Input() postCreated_at: string;
+  @Input() photo: string;
   @Input() localId: number;
+
+  isAuth: boolean;
 
   addLike() {
     this.postsService.likeAPost(this.postTitle);
@@ -25,6 +30,15 @@ export class PostListComponentComponent implements OnInit {
   }
 
   ngOnInit() {
+    firebase.auth().onAuthStateChanged(
+      (user) => {
+        if(user) {
+          this.isAuth = true;
+        } else {
+          this.isAuth = false;
+        }
+      }
+    );
   }
 
   getColor() {

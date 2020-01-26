@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
 export class PostsViewComponent implements OnInit {
 
 	postList : Post[] = [];
+  
 
  	postsSubscription: Subscription;
 
@@ -34,7 +35,6 @@ export class PostsViewComponent implements OnInit {
 
   getColor(i) {
  	var index = parseInt(i);
-    console.log("Index : "+index);
     if(index % 2 === 0){
         return '#E9C46A';
     } else {

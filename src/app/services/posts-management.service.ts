@@ -56,6 +56,30 @@ export class PostsManagementService {
 
   deletePost(postTitle: string){
     const index = this.posts.findIndex(element => element.title == postTitle);
+    if(this.posts[index].photo) {
+      const storageRef = firebase.storage().refFromURL(this.posts[index].photo);
+      debugger
+      storageRef.delete().then(
+        () => {
+          console.log('Photo removed!');
+        },
+        (error) => {
+          console.log('Could not remove photo! : ' + error);
+        }
+      );
+    }
+    if(this.posts[index].photoCropped) {
+      const storageRef = firebase.storage().refFromURL(this.posts[index].photoCropped);
+      debugger
+      storageRef.delete().then(
+        () => {
+          console.log('PhotoCropped removed!');
+        },
+        (error) => {
+          console.log('Could not remove photo! : ' + error);
+        }
+      );
+    }
     if (index > -1) {
        this.posts.splice(index, 1);
     }
@@ -76,6 +100,28 @@ export class PostsManagementService {
     this.posts[index].loveIts = this.posts[index].loveIts - 1;
     this.savePosts();
     this.emitPosts();
+  }
+
+  uploadFile(file: File) {
+      return new Promise(
+        (resolve, reject) => {
+          const almostUniqueFileName = Date.now().toString();
+          const upload = firebase.storage().ref()
+            .child('images/' + almostUniqueFileName + file.name).put(file);
+          upload.on(firebase.storage.TaskEvent.STATE_CHANGED,
+            () => {
+              console.log('Chargement…');
+            },
+            (error) => {
+              console.log('Erreur de chargement ! : ' + error);
+              reject();
+            },
+            () => {
+              resolve(upload.snapshot.ref.getDownloadURL());
+            }
+          );
+        }
+      );
   }
 
 

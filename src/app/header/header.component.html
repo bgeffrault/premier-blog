@@ -1,31 +1,67 @@
-<nav class = "navbar navbar-default " role = "navigation" style="margin: 20px 20px; 
-                                                            background-color: #2A9D8F; ">
-   
-   <div class = "navbar-header">
-      <button type = "button" class = "navbar-toggle" 
-         data-toggle = "collapse" data-target = "#example-navbar-collapse">
-         <span class = "sr-only">Toggle navigation</span>
-         <span class = "icon-bar"></span>
-         <span class = "icon-bar"></span>
-         <span class = "icon-bar"></span>
-      </button>
-		
-      <a class = "navbar-brand" routerLinkActive="active"
-          routerLink="">MonBlog</a>
-   </div>
-   
-   <div class = "collapse navbar-collapse" id = "example-navbar-collapse">
-	
-      <ul class = "nav navbar-nav">
-         <li><a routerLinkActive="active"
-          routerLink="creatPost">New Post</a></li>
+<!--Navbar-->
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark rgba-brown-strong">
 
-         <li><a routerLinkActive="active"
-          routerLink="calendar">Calendrier</a></li>
+    <!-- Navbar brand -->
+    <mdb-navbar-brand><a class="navbar-brand" routerLinkActive="active"
+          routerLink="">
+          <img src="https://firebasestorage.googleapis.com/v0/b/blog-angular-training.appspot.com/o/all_pictures%2Ffood-and-restaurant.svg?alt=media&token=60b55c96-d5fa-4505-bf25-52026e2ef324" width="30" height="30" alt="" style="margin-top: 7px"></a></mdb-navbar-brand>
 
-          <li><a routerLinkActive="active"
-          routerLink="signIn">Se connecter</a></li>
+    <!-- Collapsible content -->
+    <links>
 
-      </ul>
-   </div>
-</nav>
+        <!-- Links -->
+        <ul class="navbar-nav mr-auto">
+            <li [ngClass]="{ 
+                'nav-item' : true,
+                'active' : this.router.url === '/'
+              }"
+            >
+                <a class="nav-link waves-light" mdbWavesEffect routerLinkActive="active"
+          routerLink="">
+                Acceuil
+                <span class="sr-only">(current)</span></a>
+            </li>
+            <li [ngClass]="{ 
+                'nav-item' : true,
+                'active' : this.router.url === '/posts'
+              }">
+                <a class="nav-link waves-light" mdbWavesEffect routerLinkActive="active"
+                  routerLink="posts">Articles</a>
+            </li>
+            <li [ngClass]="{ 
+                'nav-item' : true,
+                'active' : this.router.url === '/calendar'
+              }">
+                <a class="nav-link waves-light" mdbWavesEffect routerLinkActive="active"
+                routerLink="calendar"
+                hidden="true">Calendrier</a>
+            </li>
+            <li [ngClass]="{ 
+                'nav-item' : true,
+                'active' : this.router.url === '/signIn'
+              }">
+                <a class="nav-link waves-light" mdbWavesEffect routerLinkActive="active" 
+            *ngIf="!isAuth"
+          routerLink="signIn">Se connecter</a>
+            </li>
+            <li [ngClass]="{ 
+                'nav-item' : true,
+                'active' : this.router.url === '/creatPost'
+              }">
+                <a class="nav-link waves-light" mdbWavesEffect routerLinkActive="active"
+                *ngIf="isAuth"
+                routerLink="creatPost">Créer Article</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link waves-light" mdbWavesEffect routerLinkActive="active"
+                routerLink=""(click)="onSignOut()"
+               style="cursor:pointer"
+               *ngIf="isAuth">Déconnexion</a>
+            </li>
+        </ul>
+        <!-- Links -->
+    </links>
+    <!-- Collapsible content -->
+
+</mdb-navbar>
+<!--/.Navbar-->

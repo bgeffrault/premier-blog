@@ -19,6 +19,11 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { SigninComponent } from './auth/signin/signin.component';
 import { HomePageViewComponent } from './homePage/home-page-view/home-page-view.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SliderModule } from 'angular-image-slider';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { ImageCropperModule } from 'ngx-image-cropper';
+import { FooterComponent } from './footer/footer.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomePageViewComponent, pathMatch: 'full' },
@@ -26,6 +31,7 @@ const appRoutes: Routes = [
   { path: 'calendar', component:  CalandarViewComponent },
   { path: 'creatPost', canActivate: [AuthGuardService], component: PostFormComponent },
   { path: 'signIn', component: SigninComponent },
+  { path: 'posts', component: PostsViewComponent },
 ];
 
 @NgModule({
@@ -38,6 +44,7 @@ const appRoutes: Routes = [
     CalandarViewComponent,
     SigninComponent,
     HomePageViewComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,7 +53,11 @@ const appRoutes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     NgbModule,
-    CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory })
+    CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory }),
+    BrowserAnimationsModule,
+    SliderModule,
+    MDBBootstrapModule.forRoot(),
+    ImageCropperModule,
   ],
   providers: [
     PostsManagementService,

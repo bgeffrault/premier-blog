@@ -1,0 +1,136 @@
+<!-- Footer -->
+<footer class="page-footer font-small pt-4 rgba-brown-strong" style="margin-top: 20px">
+
+  <!-- Footer Links -->
+  <div class="container-fluid text-center text-md-left">
+
+    <!-- Grid row -->
+    <div class="row">
+
+      <!-- Grid column -->
+      <div class="col-md-3 mt-md-0 mt-3 text">
+
+        <!-- Content -->
+        <div class="row">
+	        <h5 class="text-uppercase col-12 text-center">Qui suis-je ?</h5>
+	    </div>
+	    <div class="row">
+	        <img class="col-12 rounded-circle mx-auto" src="https://firebasestorage.googleapis.com/v0/b/blog-angular-training.appspot.com/o/all_pictures%2Fmoi.jpeg?alt=media&token=25cc1314-1673-4092-8839-1218a9ba174b " style="max-width: 250px">
+	        
+	    </div>
+	    <div class="row">
+	    	<p class="text-justify col-12">Jeune ingénieur français, j'adore voyager et découvrir de nouveaux lieux. Récemment arrivé à Montréal, je suis à la recherche d'un post de Web Développeur Junior.<br/> Lors de mon temps libre je réalise de petits projets informatique/électronique qui seront prochainement partagés sur ce site. Je vous invite à me contacter si vous êtes intéressé.</p>
+	    </div>
+      </div>
+      <!-- Grid column -->
+
+      <hr class="clearfix w-100 d-md-none pb-3">
+      <div class="row col-md-3 mb-md-0 mb-3">
+	      <!-- Grid column -->
+	      <div class="col-5">
+
+	        <!-- Links -->
+	        <h5 class="text-uppercase">Liens</h5>
+
+	        <ul class="list-unstyled">
+	          <li>
+	            <a routerLinkActive="active"
+	                  routerLink="posts">Articles</a>
+	          </li>
+	          <li>
+	            <a routerLinkActive="active"
+	                routerLink="calendar">Calendrier</a>
+	          </li>
+	          <li>
+	            <a routerLinkActive="active" 
+	            *ngIf="!isAuth"
+	          routerLink="signIn">Se connecter</a>
+	          </li>
+	          <li>
+	            <a routerLinkActive="active"
+	                *ngIf="isAuth"
+	                routerLink="creatPost">Créer Post</a>
+	          </li>
+	          <li>
+	            <a routerLinkActive="active"
+	                routerLink=""(click)="onSignOut()"
+	               style="cursor:pointer"
+	               *ngIf="isAuth">Déconnexion</a>
+	          </li>
+	        </ul>
+	      </div>
+	      <div class="col-7">
+	      	<div class="row">
+        	 	<h5 class="text-uppercase">Contact</h5>
+        	</div>
+        	<div class="row">
+	        	 <img src="https://firebasestorage.googleapis.com/v0/b/blog-angular-training.appspot.com/o/all_pictures%2Fmail.svg?alt=media&token=58fa5fc8-9396-4d56-a00d-f56a3daf4cb9" width="20px" height="auto" style="padding-right: 5px">bgeffrault@outlook.fr
+        	 </div>
+        	 <div class="row">
+	        	 <img src="https://firebasestorage.googleapis.com/v0/b/blog-angular-training.appspot.com/o/all_pictures%2Fcall.svg?alt=media&token=04cb29da-59e9-4415-a742-c489e0062505" width="20px" height="auto" style="padding-right: 5px">+33 6 25 63 81 47
+        	 </div>	
+        </div>
+	  </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-md-6 mb-md-0 mb-3">
+
+        <!-- Links -->
+        <h5 class="text-uppercase">Derniers articles</h5>
+
+        <ul class="list-unstyled">
+          <li>            
+            <div *ngIf="postList[0]">
+            	<a class="btn" routerLinkActive="active"
+                  routerLink="posts">
+				    <div class="view w-100 miniatureStyle">
+				      <img class="col-sm-6 d-block w-100 resize  mx-auto" [src]="postList[0].photoCropped" >
+				      <h6 class="col-sm-6 h3-responsive mx-auto">{{ postList[0].title }}</h6>
+				     </div>
+				 </a>
+			 </div>
+          </li>
+          <li>
+            <div *ngIf="postList[1]">
+            	<a class="btn" routerLinkActive="active"
+                  routerLink="posts">
+				    <div class="view w-100 miniatureStyle">
+				      <img class="col-sm-6 d-block w-100 resize  mx-auto" [src]="postList[1].photoCropped" >
+				      <h6 class="col-sm-6 h3-responsive mx-auto">{{ postList[1].title }}</h6>
+				     </div>
+				 </a>
+			 </div>
+          </li>
+          <li>
+            <div *ngIf="postList[2]">
+            	<a class="btn" routerLinkActive="active"
+                  routerLink="posts">
+				    <div class="view w-100 miniatureStyle">
+				      <img class="col-sm-6 d-block w-100 resize  mx-auto" [src]="postList[2].photoCropped" >
+				      <h6 class="col-sm-6 h3-responsive mx-auto">{{ postList[2].title }}</h6>
+				     </div>
+				 </a>
+			 </div>
+          </li>
+        </ul>
+
+      </div>
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row -->
+
+  </div>
+  <!-- Footer Links -->
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+  <div class="footer-copyright text-center py-3">© 2020 Copyright:
+    <a href="https://mdbootstrap.com/education/bootstrap/"> MDBootstrap.com</a>
+  </div>
+
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
