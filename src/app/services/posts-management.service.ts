@@ -24,6 +24,7 @@ export class PostsManagementService {
       .on('value', (data: DataSnapshot) => {
           this.posts = data.val() ? data.val() : [];
           this.emitPosts();
+          console.log("Get Posts succes");
         }
       );
   }
@@ -35,6 +36,7 @@ export class PostsManagementService {
           (data: DataSnapshot) => {
             resolve(data.val());
           }, (error) => {
+            console.error("Get Post rejected");
             reject(error);
           }
         );

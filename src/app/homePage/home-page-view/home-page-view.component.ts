@@ -25,7 +25,6 @@ export class HomePageViewComponent implements OnInit {
   ngOnInit() {
     this.postsSubscription = this.postsService.postsSubject.subscribe(
       (posts: Post[]) => {
-      	console.log('Data from home page ', posts);
         this.postList = posts.reverse();
       }
     );

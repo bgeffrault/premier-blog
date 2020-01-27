@@ -22,14 +22,11 @@ export class PostsViewComponent implements OnInit {
 }
 
   ngOnInit() {
-  	console.log('Init :');
     this.postsSubscription = this.postsService.postsSubject.subscribe(
       (posts: Post[]) => {
-      	console.log('Data ', posts);
         this.postList = posts;
       }
     );
-    console.log('Posts :', this.postList);
     this.postsService.emitPosts();
   }
 

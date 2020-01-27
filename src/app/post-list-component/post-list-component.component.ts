@@ -55,7 +55,6 @@ export class PostListComponentComponent implements OnInit {
   }
 
   deleteThisPost(){
-    console.log('Here');
     this.postsService.deletePost(this.postTitle);
   }
 
