@@ -1,11 +1,11 @@
 <div class="row" style="margin-bottom: 20px">
 	<div class="col-12 view w-100">
-		<img  class="d-block w-75 mx-auto" src="https://firebasestorage.googleapis.com/v0/b/blog-angular-training.appspot.com/o/all_pictures%2Ffood-and-restaurant.svg?alt=media&token=60b55c96-d5fa-4505-bf25-52026e2ef324" style="max-height: 300px">	
+		<img  class="d-block w-75 mx-auto" src="https://firebasestorage.googleapis.com/v0/b/blog-angular-training.appspot.com/o/all_pictures%2Flogo.svg?alt=media&token=7f4f59a0-b1d6-4c41-9d68-43d9bcec5038" style="max-height: 150px">	
 	</div>
 </div>
 <div class="row">
 	<div class="col-12 text-center" style="margin-bottom: 20px">
-		<h2>Chatiste</h2>
+		<h2>SAUVAGE</h2>
 	</div>	
 </div>
 <div class="row " style="margin-bottom: 20px">
@@ -13,7 +13,9 @@
 		<!-- Faire un cadre de base puis faire un crop centré au millieu pour y placer les images de différentes tailles -->
 	  <mdb-carousel-item *ngIf="postList[0]">
 	    <div class="view w-100">
-	      <img class="d-block w-100 resize" [src]="postList[0].photoCropped" alt="First slide" >
+	      <img class="d-block w-100 resize" [src]="postList[0].photoCropped" alt="First slide"
+	 routerLinkActive="active"
+	  routerLink="posts" (click)="scrollToTop()" >
 	      
 	    </div>
 	    <div class="carousel-caption">
@@ -22,7 +24,9 @@
 	  </mdb-carousel-item>
 	  <mdb-carousel-item *ngIf="postList[1]">
 	    <div class="view w-100">
-	      <img class="d-block w-100 resize" [src]="postList[1].photoCropped" alt="Second slide" >
+	      <img class="d-block w-100 resize" [src]="postList[1].photoCropped" alt="Second slide"
+	 routerLinkActive="active"
+	  routerLink="posts" (click)="scrollToTop()" >
 	      
 	    </div>
 	    <div class="carousel-caption">
@@ -31,7 +35,9 @@
 	  </mdb-carousel-item>
 	  <mdb-carousel-item *ngIf="postList[2]">
 	    <div class="view w-100">
-	      <img class="d-block  w-100 resize" [src]="postList[2].photoCropped" alt="Third slide" >
+	      <img class="d-block  w-100 resize" [src]="postList[2].photoCropped" alt="Third slide"
+	 routerLinkActive="active"
+	  routerLink="posts" (click)="scrollToTop()" >
 	      
 	    </div>
 	    <div class="carousel-caption">
@@ -43,9 +49,9 @@
 <div class="container">
 	<div class="row">
 		<div class="col-lg-8 col-md-10 col-sm-9 d-block mx-auto text-justify">
-			Ce site a été développé par Baptiste GEFFRAULT avec le framework Angular 8, il s"appui sur un backend Firebase pour le stockage des données.
+			Ce site a été développé par Baptiste GEFFRAULT avec le framework Angular 8, il s'appuie sur un backend Firebase pour le stockage des données.
 			<br/>
-			Le contenu du site n'a pour l'instant pas de cohérence particulière, il a été mis en ligne pour servir de référence en tant que mini-projet réalisé par Baptiste dans l'attente d'une version supérieur de type blog avec un contenu et une apparence spécifique.	
+			Le contenu du site n'a pour l'instant pas de cohérence particulière et est en contruction, il a été mis en ligne pour servir de référence en tant que mini-projet dans l'attente d'une version supérieure avec un contenu et une apparence esthétique et ergonomique.	
 		</div>
 	</div>
 </div>

@@ -24,6 +24,7 @@ import { SliderModule } from 'angular-image-slider';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { ImageCropperModule } from 'ngx-image-cropper';
 import { FooterComponent } from './footer/footer.component';
+import { AngularResizedEventModule } from 'angular-resize-event';
 
 const appRoutes: Routes = [
   { path: '', component: HomePageViewComponent, pathMatch: 'full' },
@@ -58,6 +59,7 @@ const appRoutes: Routes = [
     SliderModule,
     MDBBootstrapModule.forRoot(),
     ImageCropperModule,
+    AngularResizedEventModule,
   ],
   providers: [
     PostsManagementService,

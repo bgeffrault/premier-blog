@@ -58,7 +58,6 @@ export class PostsManagementService {
     const index = this.posts.findIndex(element => element.title == postTitle);
     if(this.posts[index].photo) {
       const storageRef = firebase.storage().refFromURL(this.posts[index].photo);
-      debugger
       storageRef.delete().then(
         () => {
           console.log('Photo removed!');
@@ -70,7 +69,6 @@ export class PostsManagementService {
     }
     if(this.posts[index].photoCropped) {
       const storageRef = firebase.storage().refFromURL(this.posts[index].photoCropped);
-      debugger
       storageRef.delete().then(
         () => {
           console.log('PhotoCropped removed!');

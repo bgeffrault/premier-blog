@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { PostsManagementService } from '../services/posts-management.service';
 import { AuthService } from '../services/auth.service';
 import * as firebase from 'firebase';
+import { ResizedEvent } from 'angular-resize-event';
 
 @Component({
   selector: 'app-post-list-component',
@@ -20,6 +21,8 @@ export class PostListComponentComponent implements OnInit {
   @Input() localId: number;
 
   isAuth: boolean;
+  width : number;
+  height : number;
 
   addLike() {
     this.postsService.likeAPost(this.postTitle);
@@ -39,6 +42,7 @@ export class PostListComponentComponent implements OnInit {
         }
       }
     );
+
   }
 
   getColor() {
@@ -54,5 +58,6 @@ export class PostListComponentComponent implements OnInit {
     console.log('Here');
     this.postsService.deletePost(this.postTitle);
   }
+
 
 }

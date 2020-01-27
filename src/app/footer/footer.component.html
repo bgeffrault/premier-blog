@@ -19,7 +19,7 @@
 	        
 	    </div>
 	    <div class="row">
-	    	<p class="text-justify col-12">Jeune ingénieur français, j'adore voyager et découvrir de nouveaux lieux. Récemment arrivé à Montréal, je suis à la recherche d'un post de Web Développeur Junior.<br/> Lors de mon temps libre je réalise de petits projets informatique/électronique qui seront prochainement partagés sur ce site. Je vous invite à me contacter si vous êtes intéressé.</p>
+	    	<p class="text-justify col-12">Jeune ingénieur français, j'adore voyager et découvrir de nouveaux lieux. Récemment arrivé à Montréal, je suis à la recherche d'un post de Web Développeur Junior.<br/> Lors de mon temps libre je réalise de petits projets informatiques/électroniques qui seront prochainement partagés sur ce site. Je vous invite à me contacter si vous êtes intéressé.</p>
 	    </div>
       </div>
       <!-- Grid column -->
@@ -39,7 +39,7 @@
 	          </li>
 	          <li>
 	            <a routerLinkActive="active"
-	                routerLink="calendar">Calendrier</a>
+	                routerLink="calendar" hidden="true">Calendrier</a>
 	          </li>
 	          <li>
 	            <a routerLinkActive="active" 
@@ -83,7 +83,7 @@
           <li>            
             <div *ngIf="postList[0]">
             	<a class="btn" routerLinkActive="active"
-                  routerLink="posts">
+                  routerLink="posts" (click)="scrollToTop()">
 				    <div class="view w-100 miniatureStyle">
 				      <img class="col-sm-6 d-block w-100 resize  mx-auto" [src]="postList[0].photoCropped" >
 				      <h6 class="col-sm-6 h3-responsive mx-auto">{{ postList[0].title }}</h6>
@@ -94,7 +94,7 @@
           <li>
             <div *ngIf="postList[1]">
             	<a class="btn" routerLinkActive="active"
-                  routerLink="posts">
+                  routerLink="posts" (click)="scrollToTop()">
 				    <div class="view w-100 miniatureStyle">
 				      <img class="col-sm-6 d-block w-100 resize  mx-auto" [src]="postList[1].photoCropped" >
 				      <h6 class="col-sm-6 h3-responsive mx-auto">{{ postList[1].title }}</h6>
@@ -105,7 +105,7 @@
           <li>
             <div *ngIf="postList[2]">
             	<a class="btn" routerLinkActive="active"
-                  routerLink="posts">
+                  routerLink="posts" (click)="scrollToTop()">
 				    <div class="view w-100 miniatureStyle">
 				      <img class="col-sm-6 d-block w-100 resize  mx-auto" [src]="postList[2].photoCropped" >
 				      <h6 class="col-sm-6 h3-responsive mx-auto">{{ postList[2].title }}</h6>

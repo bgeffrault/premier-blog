@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import * as firebase from 'firebase';
 import { Post } from '../../models/post/post.module';
 import { Subscription } from 'rxjs';
@@ -35,6 +35,10 @@ export class HomePageViewComponent implements OnInit {
 
   ngOnDestroy() {
     this.postsSubscription.unsubscribe();
+  }
+
+  scrollToTop(){
+  	window.scrollTo(0,0);
   }
 
 }

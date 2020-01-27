@@ -46,4 +46,8 @@ export class FooterComponent implements OnInit {
     this.postsSubscription.unsubscribe();
   }
 
+  scrollToTop(){
+  	window.scrollTo(0,0);
+  }
+
 }

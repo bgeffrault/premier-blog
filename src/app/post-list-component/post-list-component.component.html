@@ -1,42 +1,58 @@
 <div class="row w-100" >
-	<div class="col-12">
-		<li class="list-group-item border-left-0 border-right-0 border-top-0 " style="margin-bottom: 10px; border-bottom-color:rgba(121, 85, 72, 0.7); border-width: 50px" >
+	<div class="col-12 w-100">
+		<li class="list-group-item border-left-0 border-right-0 border-top-0 nopadding" style="margin-bottom: 10px; border-bottom-color:rgba(121, 85, 72, 0.7); border-width: 50px" >
 			<div class="row">
 				<div class="col-12 text-justify text-center" >
 					<h2> {{ postTitle }} </h2>
 				</div>
 			</div>
 			
-			<div class="row">
-				<img class='mx-auto w-100' style="max-width:700px;" *ngIf="photo" [src]="photo">
+			<div class="row" >
+				<img id="photoView" class='mx-auto w-100' style="max-width:700px; margin-bottom: 10px" *ngIf="photo" [src]="photo" >
 			</div>
 
-			<div class="row">
-				<p class="col-12 text-justify " style="margin:10px 0 10px">Content : {{ postContent }} </p>
+			<div class="row justify-content-center">
+				<p class="col-12 text-justify nopadding" 
+				style="max-width:700px;" 
+				
+				 >{{ postContent }} </p>
 			</div>
 
-			<div class="row">
+			<div class="row justify-content-center">
 				  <div class="button-box col-4">
-		            <a  class="btn" style="margin:10px; background-color:#f8b020" (click)="addLike()">Like</a>
-		            <a button class="btn" style="margin:10px; background-color:#f8b020" (click)="subLike()">Dyslike</a>
+		            <a  class="btn" style="margin:10px; 
+		            background-color:#f8b020; 
+		            " 
+		            (click)="addLike()">Like</a>
+		            <a button class="btn" style="margin:10px; 
+		            background-color:#f8b020; 
+		            " 
+		            (click)="subLike()">Dyslike</a>
 		   		</div>
-				<div class="col-4" style="margin:10px">
+				<div class="col-4" style="margin:10px;">
 					<h5>Likes : {{ postLoveIts }}</h5>
 				</div>
 			</div>	
 					
 
 				
-			<div class="row">
-				<div class="col-6" style="margin:10px 0 10px">
-				Date de création : {{ postCreated_at | date : 'dd/MM/y' }}
+			<div class="row justify-content-center" style="margin-bottom: 20px">
+				<div class="col-12 text-justify nopadding" 
+				style="max-width:700px; " 
+
+				 >
+					<div class="row">
+						<div class="col-6 text-justify">
+							Date de création : {{ postCreated_at | date : 'dd/MM/y' }}
+						</div>
+						<div class="col-6 " *ngIf="isAuth &&
+						this.postTitle != 'Rhinocéros' &&
+						this.postTitle != 'Popork'" >
+							<button class="btn" style="background-color:#e97a0e" (click)="deleteThisPost()">Supprimer</button>
+						</div>
+					</div>
 				</div>
-				<div class="col-2 " *ngIf="isAuth &&
-				this.postTitle != 'Petite ville' &&
-				this.postTitle != 'Popork'" >
-					<button class="btn" style="margin:10px 0 10px; background-color:#e97a0e" (click)="deleteThisPost()">Supprimer</button>
-				</div>
-			</div>
+			</div>				
 		</li>
 	</div>
 </div>
