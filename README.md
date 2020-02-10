@@ -3,7 +3,7 @@
 It's a blog about Animals connected with firebase. You can like or dyslike posts. If you connect you can delete some post.
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.20.
 
-![alt text](http://url/to/https://github.com/bgeffrault/premier-blog/blob/master/Sauvage.PNG)
+![alt text]((https://raw.githubusercontent.com/bgeffrault/premier-blog/blob/master/Sauvage.PNG)
 
 ## Development server
 
