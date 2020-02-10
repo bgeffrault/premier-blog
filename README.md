@@ -1,5 +1,6 @@
-# MonPremierBlog
+# Sauvage
 
+It's a blog about Animals connected with firebase. You can like or dyslike posts. If you connect you can delete some post.
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.20.
 
 ## Development server
